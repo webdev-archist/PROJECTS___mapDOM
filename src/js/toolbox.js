@@ -9,19 +9,34 @@ export default class toolbox {
 
         }else alert('toolbox::findType => "Mauvais formats de la valeur d\'entrée"')
     }
-    selectorToHTML = function (slt) {
-        let blocks = []
-        , isString = (slt) => {
-            let parts = slt.split(">")
+    selectorToHTML = function (emmetSelector) {
+        let blocks = [], fragment = document.createElement('div')
+        , isString = (emmet_str) => {
+            let tmp = emmet_str.split(">")
+            , [container_str, ...elements_str] = tmp
+            , container = document.createElement(container_str) //IL FAUT VÉRIFIER SI container_str EST COMPLEXE OU SI (ex: "a" est simple, "a*3" est complexe)
+            //IL FAUT ICI POUVOIR TRADUIRE LA SYNTAXE emmet AU MIEUX
+
+            //SINON DANS UN 1er TEMPS, TRADUIRE UN EMMET SIMPLE SERA SUFFISANT            
+            , elements = elements_str.map(element=>document.createElement(element))
+            , element0 = elements.shift()
+            , elementN = element0
+            elements.forEach(()=>{
+                let element = elements.shift()
+                elementN.append(element)
+                elementN = element
+            })
+            container.append(element0)
+            console.log(container);
         }
         , isArray = (arr) => {
-            arr.map(slt=>{
-                let parts = slt.split(">")
+            arr.map(arrItem=>{
+                let bl = arrItem.split(">")
             })
         }
         , isJson = (json) => {
-            for(key in json){
-                let elements = selectorToHTML(json[a])
+            for(let key in json){
+                let elements = this.selectorToHTML(json[key])
                 let block = document.createElement(key)
                 appendArray(elements, block)
                 blocks.push(block)
@@ -31,10 +46,10 @@ export default class toolbox {
             arr.forEach(element=>{container.append(element)})
         }
 
-        if(     typeof slt == 'string')isString(slt)
-        else if(Array.isArray(slt))isArray(slt)
-        else if(typeof slt == 'object')isJson(slt)
-        
+        if(     typeof emmetSelector == 'string')isString(emmetSelector)
+        else if(Array.isArray(emmetSelector))isArray(emmetSelector)
+        else if(typeof emmetSelector == 'object')isJson(emmetSelector)
+
         return blocks
     }
     stringToHTML = function (str) {

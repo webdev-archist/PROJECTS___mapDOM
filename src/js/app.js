@@ -22,7 +22,7 @@ document.querySelector('body>main').appendChild(arr1MAP.mapDOM)
 // // // // console.log(arr1MAP[arr1MAP.mapType]());
 
 
-arr1MAP.selectorToHTML({fr:"poopi"})
+arr1MAP.selectorToHTML("div>p>span")
 
 
 
