@@ -1,1 +1,22 @@
-/**/
+/*
+https://rehansaeed.com/system-for-grouping-and-sorting-css-properties/
+*/
+.wrapTexte{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/*
+CUSTOMED WITH VARIABLES
+*/
+%police1{font-family: $police1;}
+%shadowM{box-shadow: $shadowM;}
+%paddingM{padding: $M;}
+%paddingS{padding: $S;}
+
+/*
+FIXED VALUE
+*/
+%relative{position: relative;}
+%textCenter{text-align: center;}
+%h100{height: 100%;}

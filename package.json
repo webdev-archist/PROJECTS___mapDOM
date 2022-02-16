@@ -70,8 +70,9 @@
     "url": "git@github.com:WeAreAthlon/frontend-webpack-boilerplate.git"
   },
   "scripts": {
-    "build": "webpack --config configuration/webpack.dev.config.js --mode=development",
-    "watch": "webpack --config configuration/webpack.dev.config.js --mode=development --watch",
+    "build": "webpack --config configuration/webpack.dev.config.js --mode=development & cd dist/ ; localserver ",
+    "watch": "webpack --config configuration/webpack.dev.config.js --mode=development --watch ",
+    "watch_": "webpack --config configuration/webpack.dev.config.js --mode=development --watch & cd dist/ ; localserver ",
     "bundle": "npm install && npm run watch",
     "dev": "webpack serve --config configuration/webpack.dev.config.js --mode=development",
     "production": "webpack --config configuration/webpack.prod.config.js --mode=production",

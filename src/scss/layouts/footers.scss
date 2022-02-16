@@ -1,0 +1,16 @@
+@mixin footerTitledList{
+    background: rgba(black,80%);
+    padding: $M;
+    &__logo{
+        color:white;
+    }
+    &__list{
+        >li{
+            margin-bottom: 5px;
+            >i{width:$L;}
+            >a{
+                color:white;
+            }
+        }
+    }
+}

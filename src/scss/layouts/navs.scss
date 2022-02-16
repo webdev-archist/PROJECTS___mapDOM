@@ -1,0 +1,32 @@
+/* ooo */
+@mixin nav__jumbotron(){
+    @extend %textCenter;
+    &__form{
+        @include flex((jc:center));
+        @extend %paddingS;
+        background: $BLACK10;
+        >i{width:50px;}
+        >input{
+            @extend %textCenter;
+            border:none;
+            background: transparent;
+            outline: none;
+        }
+    }
+    &__jumbotron{
+        padding-top: $XL;
+        >*{margin: auto;}
+        >h1{
+            font-size: $fontL;
+            width: 80%;
+        }
+        >p{
+            font-size: $fontM;
+            margin:$M auto;
+            width: 80%;
+        }
+        >button,a{
+            @extend .button1;
+        }
+    }
+}

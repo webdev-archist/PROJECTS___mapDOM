@@ -1,1 +1,44 @@
 /**/
+
+
+.icon_gradient{
+    &:before{
+        position: absolute;
+    }
+    &:after{
+        content: "\f004";
+        position: relative;
+        background: $gradient1;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 900;
+        opacity: 0;
+        transition: opacity .4s;
+    }
+    &:hover:after{
+        opacity: 1;
+    }
+    cursor:pointer;
+    z-index: 100;
+    font-weight: 100 !important;
+}
+
+.button1{
+    display: block;
+    width:300px;
+    cursor: pointer;
+    box-shadow:$shadowL;
+    background-image:$gradient1_test;
+    background-color: $primary;
+    border-radius: $L;
+    padding:$M;
+    color:white;
+    font-weight: 550;
+    border:none;
+    margin: auto;
+    transition: background-color .4s, box-shadow .6s;
+    &:hover{
+        background-color: rgba($primary, .8);
+        box-shadow:$shadowXL;
+    }
+}

@@ -1,0 +1,14 @@
+/**/
+
+.mainMenus{
+    background: $gray;
+}
+
+
+
+.preface{
+    @include main__titreSuperpose;
+}
+.laCarte{
+    @include main__menusRestaurant;
+}

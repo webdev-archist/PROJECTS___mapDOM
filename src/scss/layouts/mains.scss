@@ -1,0 +1,160 @@
+@mixin main__titledChoices{
+    &__titre{
+        @include tablette-and-desktop{text-align: center;}
+    }
+    &__list{
+        @include tablette-and-desktop{
+            display:flex;
+            justify-content: space-around;
+            >li{
+                display: flex;
+                height: 100px;
+                flex-flow: wrap;
+                justify-content: center;
+                >i{margin:0;}
+                >span{width:100%;text-align: center;}
+            }
+        }
+        counter-reset: listFonctionnement;
+        >li{
+            transition: background-color .4s;
+            &:hover{
+                background:rgba($primary,.2);
+                >i{color:$primary;}
+            }
+            @extend %relative;
+            cursor:pointer;
+            &:before{
+                @include absolute("" "" -1em calc(50% - .5em));
+                content: counter(listFonctionnement);
+                border-radius: $M;
+                background: $primary;
+                width: $M;
+                height: $M;
+                @extend %textCenter;
+                line-height: $M;
+                font-size: $fontS;
+                color: white;
+            }
+            counter-increment: listFonctionnement;
+            @extend .listItemRound;
+            >i{color: gray;margin-right: 1em;}
+            >span{}
+        }
+    }
+}
+
+@mixin main__titledCards{
+    &__titre{}
+    &__list{
+        @include card-restaurant1;
+    }
+}
+
+
+
+
+// PAGES MENU
+@mixin main__titreSuperpose{
+    @extend %relative;
+    >img{
+        width:100%;
+        @include tablette-and-desktop{
+            width:100%;
+            height: 400px;
+            object-fit: cover;
+        }
+    }
+    >h1{
+        @extend %police1;
+        font-weight: 100;
+        margin:0 0 $XL;
+        background: $gray;
+        padding: $XL $M $M;
+        border-radius: $XL $XL 0 0;
+        position: absolute;
+        bottom: -$XL;
+        width: 100%;
+        // border-bottom: solid;
+    }
+    i{
+        @extend .icon_gradient;
+        font-weight:100 !important;
+        float:right;
+    }
+}
+
+
+@mixin main__menusRestaurant{
+    padding:1em;
+    >h2{
+        @extend %relative;
+        display: inline-block;
+        &:after{
+            content: "";
+            @include absolute("" "" -10px 0);
+            width: $XL;
+            border-bottom: $XS solid $ternary;
+        }
+    }
+    >ul{
+        >li{
+            @extend .listItemRound;
+            @extend %relative;
+            background:white;
+            overflow:hidden;
+            >h3{margin:0;}
+            >p{
+                margin-bottom: 0;
+                span{
+                    @extend .wrapTexte;
+                    display: inline-block;
+                    width:90%;
+                    transition: width .4s;
+                }
+                >b{
+                    width:10%;
+                    vertical-align: top;
+                }
+            }
+            >strong{
+                // position: absolute;
+                // right:2em;
+                // bottom:1em;
+            }
+            &:before{
+                content:"";
+                @include absolute(0 0 "" "");
+                border-radius: 0 20px 20px 0;
+                background: $ternary;
+                width:0%;
+                height: 100%;
+                transition: width .4s;
+                >span{@include absolute("" 10% "" "");}
+            }
+            &:after{
+                content:"";
+                @include absolute(calc(50% - 1em/2) -10% "" "");
+                @include fa("\f00c");
+                color:$ternary;
+                border-radius: $M;
+                padding: $XS;
+                background: white;
+                transition: transform .6s, right .4s;
+            }
+            &:hover{
+                >p>span{width:70%;}
+                &:before{
+                    width:20%;
+                }
+                &:after{
+                    transform: rotate(720deg);
+                    right: 7.5%;
+                }
+            }
+        }
+    }
+    >button,a{
+        @extend .button1;
+    }
+}

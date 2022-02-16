@@ -1,4 +1,52 @@
-/**/
+@use "sass:list";
+@use "sass:map";
+
+/*POSITIONING*/
+@mixin absolute($directions: "" "" "" "") {
+    position:absolute;
+    @if(list.nth($directions,1)){top:list.nth($directions,1)}
+    @if(list.nth($directions,2)){right:list.nth($directions,2)}
+    @if(list.nth($directions,3)){bottom:list.nth($directions,3)}
+    @if(list.nth($directions,4)){left:list.nth($directions,4)}
+}
+@mixin flex($map: (jc:"", ai:"", ac:"")) {
+    display:flex;
+    @if(map.get($map, jc)){justify-content: map.get($map, jc);}
+    @if(map.get($map, ai)){align-items: map.get($map, ai);}
+    @if(map.get($map, ac)){align-content: map.get($map, ac);}
+}
+@mixin box($map:(m:"",b:"",p:"",w:"",h:"")) {
+    @if(map.get($map, m) != ""){margin: map.get($map, m);}
+    @if(map.get($map, b) != ""){border: map.get($map, b);}
+    @if(map.get($map, p) != ""){padding: map.get($map, p);}
+    @if(map.get($map, w) != ""){width: map.get($map, w);}
+    @if(map.get($map, h) != ""){height: map.get($map, h);}
+}
+@mixin display($map:(b:"",c:"")) {
+    @if(map.get($map, b) != ""){background: map.get($map, b);}
+    @if(map.get($map, c) != ""){color: map.get($map, c);}
+}
+@mixin fa($icon) {
+    font-family: "Font Awesome 5 Pro";
+    content: $icon;
+}
+
+
+
+
+/* cards */
+@mixin imgCard($map: (full:"", top:"", bottom:"")) {
+    img{
+        width: 100%;
+        object-fit: cover;
+        @if(map.get($map, full) != ""){border-radius: map.get($map, full) map.get($map, full) map.get($map, full) map.get($map, full);}
+        @if(map.get($map, top)){border-radius: map.get($map, top) map.get($map, top) 0 0;}
+        @if(map.get($map, bottom)){border-radius: 0 0 map.get($map, bottom) map.get($map, bottom);}
+    }
+}
+
+
+/*BREAKPOINTS*/
 
 @mixin mobile-only($max: map-get($breakpoints, mobile)) {
     @media screen and (max-width: $max){
@@ -25,3 +73,6 @@
         @content;
     }
 }
+
+
+

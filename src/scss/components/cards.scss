@@ -1,0 +1,33 @@
+@mixin card-restaurant1{
+    @include tablette-and-desktop{
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+        gap: 15px;
+    }
+    >li{
+        @include tablette-and-desktop{
+            flex-basis: 32%;
+        }
+        @extend %relative;
+        transition: box-shadow .6s;
+        &:hover{box-shadow: $shadowXL;}
+        box-shadow: $shadowL;
+        background: white;
+        margin-top: $M;
+        border-radius: $M;
+        padding-bottom: $M;
+        @include imgCard((top: $M));
+        >h3,>p{margin:$XS $M;}
+        >h3{}
+        >p{}
+        >i{
+            @extend .icon_gradient;
+            @include absolute("" 2em 3em "");
+        }
+        >a{
+            @include absolute(0 0 0 0);
+            z-index: 10;
+        }
+    }
+}

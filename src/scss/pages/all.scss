@@ -1,0 +1,8 @@
+
+.headerbar{
+    @include headerNavbar;
+}
+
+.footerbar{
+    @include footerTitledList;
+}

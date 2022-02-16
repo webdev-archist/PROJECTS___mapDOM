@@ -1,8 +1,48 @@
-/**/
+/*
+ÉLÉMENTS ISSUES DU BESOIN CLIENT
+*/
+
+$police1: 'Shrikhand', cursive;
+$police2: 'Roboto', sans-serif;
+
+$primary: #9356DC;
+$secondary: #FF79DA;
+$ternary: #99F2D0;
+$dark: black;
+$light: white;
+$gray: #eee;
+
+$WHITE: #FFF;
+$BLACK: #000;
+$GRAY: #999;
+$BLACK10: rgba(black, 10%);
+$BLACK1: ajust-hue(black, 20%);
+$BLACK2: ajust-hue(black, 30%);
+$BLACK3: ajust-hue(black, 40%);
+
+$gradient1: linear-gradient($secondary, $primary);
+$gradient1_test: linear-gradient($secondary, rgba($primary, 0));
+
+$breakpoints: (
+    mobile: 768px,
+    desktop: 992px
+);
 
 
-$mobile: "taille  S";
-$tablette: "taille M";
-$desktop: "taille L";
-$tv: "taille XL";
-
+/*
+ ÉLÉMENTS DÉFINIS POUR DES VALEURS QUI SE RÉPÈTENT
+ */
+$XS: 5px;
+$S: 10px;
+$S_: 15px;
+$M: 20px;
+$L: 30px;
+$XL: 50px;
+$XXL: 60px;
+$shadowM: 0px 1px 5px 0.1px black;
+$shadowL: 0 3px 10px -5px black;
+$shadowXL: 0 5px 15px -5px black;
+$fontS: .85em;
+$fontM: 1.2em;
+$fontL: 1.5em;
+$fontXL: 50px;
