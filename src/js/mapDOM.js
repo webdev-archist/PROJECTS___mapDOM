@@ -1,8 +1,8 @@
-import toolbox from "./toolbox"
+import toolbox from "./vendor/toolbox"
 
 export default class mapDOM extends toolbox{
-    constructor(obj) {
-        super();
+    constructor(obj = {}) {
+        super('yo');
         // this.state = {}
         this.obj = obj
         this.mapDOM = {}
