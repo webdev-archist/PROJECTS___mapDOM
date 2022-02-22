@@ -24,8 +24,8 @@ document.querySelector('body>main').appendChild(arr1MAP.mapDOM)
 
 // arr1MAP.selectorToHTML("div>p+section>span^article>b>i^^cite")
 // $$$("div>p+section>span^article>b>i^cite")
-console.log($$$('tag#id.classes.separated.by.dots.and(attributes="sepearated by",commas=""){Plus inner texts all included}>.nested*3>.sibling^.parent'))
-console.log(arr1MAP.$('tag#id.classes.separated.by.dots.and(attributes="sepearated by",commas=""){Plus inner texts all included}>.nested*3>.sibling^.parent'));
+console.log($$$('tag#id.classes.separated.by.dots.and[attributes="sepearated by",commas=""]{Plus inner texts all included}>.nested-$*3>.sibling^.parent'))
+console.log(arr1MAP.$('tag#id.classes.separated.by.dots.and[attributes="sepearated by",commas=""]{Plus inner texts all included}>.nested*3>.sibling^.parent'));
 
 
 
